@@ -1,0 +1,82 @@
+﻿@model SMS.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Edit Student</h2>
+
+    <div class="card p-4">
+
+        <form asp-controller="Student"
+              asp-action="Edit"
+              method="post">
+
+            <!-- Student ID -->
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Student Name -->
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">
+                    Student Name
+                </label>
+
+                <input asp-for="Name"
+                       class="form-control"
+                       placeholder="Enter student name" />
+
+                <span asp-validation-for="Name"
+                      class="text-danger"></span>
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="mb-3">
+                <label asp-for="MobileNo" class="form-label">
+                    Mobile Number
+                </label>
+
+                <input asp-for="MobileNo"
+                       type="tel"
+                       class="form-control"
+                       placeholder="Enter mobile number" />
+
+                <span asp-validation-for="MobileNo"
+                      class="text-danger"></span>
+            </div>
+
+            <!-- Course -->
+            <div class="mb-3">
+                <label asp-for="Course1" class="form-label">
+                    Select Course
+                </label>
+
+                <select asp-for="Course1"
+                        class="form-select">
+
+                    <option value="0">Machine Learning</option>
+                    <option value="1">AI Software Development</option>
+                    <option value="2">Big Data</option>
+
+                </select>
+
+                <span asp-validation-for="Course1"
+                      class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Update Student
+            </button>
+
+            <a asp-controller="Student"
+               asp-action="Index"
+               class="btn btn-secondary">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
